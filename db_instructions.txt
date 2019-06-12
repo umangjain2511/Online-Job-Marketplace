@@ -1,0 +1,35 @@
+1. Create JDBC Connection
+2. Create DB called "Details"
+3. Execute these commands one after the other to create the tables used in the project.
+
+CREATE TABLE jid_to_fid
+(
+id INTEGER PRIMARY KEY NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1),
+job_id VARCHAR(50),
+freelancer VARCHAR(50)
+)
+
+CREATE TABLE job_details
+(
+ujid INTEGER PRIMARY KEY NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1),
+title VARCHAR(50),
+job_desc VARCHAR(100),
+payment VARCHAR(30),
+keywords VARCHAR(50),
+added_by VARCHAR(100),
+status VARCHAR(20),
+assigned_to VARCHAR(50)
+)
+
+CREATE TABLE user_details
+(
+uid INTEGER PRIMARY KEY NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1),
+fname VARCHAR(50),
+lname VARCHAR(50),
+email VARCHAR(50),
+password VARCHAR(50),
+urole VARCHAR(50),
+skills VARCHAR(50),
+acc_money VARCHAR(30),
+message VARCHAR(200)
+)
