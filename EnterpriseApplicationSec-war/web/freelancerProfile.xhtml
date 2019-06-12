@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Freelancer Profile</title>
+    </h:head>
+    <h:body>
+        <ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                        template="./templates/newTemplate.xhtml">
+            <ui:define name="content">
+        <h:form>
+            <h:commandButton action="freelancerHome" value="Go Home"/>
+            <br/>
+            <br/>
+            <h:commandButton action="editProfile" value="Edit Profile"/>
+            <br/>
+            <br/>
+            <h2>Profile Info</h2>
+            <h:dataTable value="#{sessionInfo.viewFprofile()}" var="fp" border="1">
+            <h:column>
+            <f:facet name="header">
+            Freelancer ID
+            </f:facet>
+            #{fp.fid}
+            </h:column>
+
+            <h:column>
+            <f:facet name="header">
+            First Name
+            </f:facet>
+            #{fp.fname}
+            </h:column>
+
+            <h:column>
+            <f:facet name="header">
+            Last Name
+            </f:facet>
+            #{fp.lname}
+            </h:column>
+
+            <h:column>
+            <f:facet name="header">
+            Email
+            </f:facet>
+            #{fp.femail}
+            </h:column>
+
+            <h:column>
+            <f:facet name="header">
+            Skills
+            </f:facet>
+            #{fp.skills}
+            </h:column>
+                
+            <h:column>
+            <f:facet name="header">
+            Message To Employer
+            </f:facet>
+            #{fp.msg}
+            </h:column> 
+            <h:column>
+            <f:facet name="header">
+            Account Balance
+            </f:facet>
+            #{fp.acc_money}
+            </h:column> 
+            </h:dataTable>
+        </h:form>
+        </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

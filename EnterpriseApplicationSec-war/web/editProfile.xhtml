@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Edit Freelancer Profile</title>
+    </h:head>
+    <h:body>
+        <ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                        template="./templates/newTemplate.xhtml">
+            <ui:define name="content">
+        <h:form>
+            <table>
+            <tr>
+                    <td><h:outputText value = "First Name" /></td>
+                    <td><h:inputText value ="#{sessionInfo.fname}"/></td>
+                </tr>
+                
+                <tr>
+                    <td><h:outputText value = "Last Name" /></td>
+                    <td><h:inputText value ="#{sessionInfo.lname}"/></td>
+                </tr>
+                <tr>
+                    <td><h:outputText value = "Skills" /></td>
+                    <td><h:inputText value ="#{sessionInfo.skills}"/></td>
+                </tr>
+                <tr>
+                    <td><h:outputText value = "Message to Employer" /></td>
+                    <td><h:inputText value ="#{sessionInfo.msg}"/></td>
+                </tr>
+                <tr>
+                    <td><h:commandButton value="Make Changes To Profile" action="#{sessionInfo.editFProfile()}">
+                        </h:commandButton>
+                    </td>
+                </tr>
+            </table>
+        </h:form>
+        </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+
+

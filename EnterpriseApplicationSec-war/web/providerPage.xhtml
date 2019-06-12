@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Job Provider Home Page</title>
+    </h:head>
+    <h:body>
+        <ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                        template="./templates/newTemplate.xhtml">
+            <ui:define name="content">
+        <h:form>
+            <div>
+                <h:commandButton action="#{sessionInfo.logout()}" value="Logout"/>
+            </div>
+            <h:commandButton action="addNewJob" value="Create New Job"/> 
+            <br/>
+            <br/>
+            <h:commandButton action="applicants" value="View Applicants"/>
+            <br/>
+            <br/>
+            <h:outputText value = "Enter JOB ID" />
+            <h:inputText value="#{sessionInfo.jid}"/>
+            <h:commandButton action="#{sessionInfo.dJobs()}" value="Delete Job"/>
+            <br/>
+            <h2>Open Jobs</h2>
+            <h:dataTable value="#{sessionInfo.viewOpenJobs()}" var="jobList" border="1">
+            <h:column>
+            <f:facet name="header">
+            Job ID
+            </f:facet>
+            #{jobList.jid}
+            </h:column>
+
+            <h:column>
+            <f:facet name="header">
+            Job Title
+            </f:facet>
+            #{jobList.title}
+            </h:column>
+
+            <h:column>
+            <f:facet name="header">
+            Job Description
+            </f:facet>
+            #{jobList.desc}
+            </h:column>
+
+            <h:column>
+            <f:facet name="header">
+            Offered Pay
+            </f:facet>
+            #{jobList.pay}
+            </h:column>                
+            </h:dataTable>
+            <br/>
+            <br/>
+            <h2>Closed Jobs</h2>
+            <h:dataTable value="#{sessionInfo.viewClosedJobs()}" var="jl" border="1">
+            <h:column>
+            <f:facet name="header">
+            Job ID
+            </f:facet>
+            #{jl.jid}
+            </h:column>
+
+            <h:column>
+            <f:facet name="header">
+            Job Title
+            </f:facet>
+            #{jl.title}
+            </h:column>
+
+            <h:column>
+            <f:facet name="header">
+            Job Description
+            </f:facet>
+            #{jl.desc}
+            </h:column>
+
+            <h:column>
+            <f:facet name="header">
+            Offered Pay
+            </f:facet>
+            #{jl.pay}
+            </h:column>
+
+
+                
+            </h:dataTable>            
+        </h:form>
+        </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

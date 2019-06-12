@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+        <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"/>
+    <h:head>
+        <title>Freelancer Job Portal</title>
+    </h:head>
+    
+        <h:body>
+        
+            <ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                            template="./templates/newTemplate.xhtml">
+                <ui:define name="content">
+            <h:form>
+            <h2>Post New Job Opening</h2>
+            <table>
+            	<tr>
+	                <td>
+	                	<h:outputText value = "Job Title" />
+	                </td>
+	                <td>
+                            <h:inputTextarea cols = "60" value="#{sessionInfo.title}"/>
+	                </td>
+	            </tr>
+            	<tr>
+	                <td>
+	                	<h:outputText value = "Description" />
+	                </td>
+	                <td>
+	                    <h:inputTextarea rows = "10" cols = "60" value="#{sessionInfo.desc}"/>
+	                </td>
+	            </tr>
+            	<tr>
+	                <td>
+	                	<h:outputText value = "Pay" />
+	                </td>
+	                <td>
+	                    <h:inputTextarea cols = "60" value="#{sessionInfo.pay}"/>
+	                </td>
+	            </tr>
+            	<tr>
+	                <td>
+	                	<h:outputText value = "Keywords" />
+	                </td>
+	                <td>
+	                    <h:inputTextarea cols = "60" value="#{sessionInfo.keywords}"/>
+	                </td>
+	            </tr>
+                
+                <tr>
+                    <td>
+                        <h:commandButton action="#{sessionInfo.postJob}" value="Post Job Opening"/>
+                    </td>
+                </tr>
+<!--                <tr>
+                    <td>
+                        <h:commandButton action="providerPage" value="Go Back"/>
+                    </td>
+                </tr>-->
+                
+            </table>
+            </h:form>
+           </ui:define>
+           </ui:composition>
+           
+        </h:body>
+    
+</html>

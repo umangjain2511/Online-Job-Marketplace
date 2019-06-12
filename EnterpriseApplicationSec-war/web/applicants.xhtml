@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Applicants</title>
+    </h:head>
+    <h:body>
+        <ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                        template="./templates/newTemplate.xhtml">
+            <ui:define name="content">
+        <h:form>
+            <h:commandButton action="providerPage" value="Go Back"/>
+            <table>
+                <tr>
+                    <td><h:outputText value = "Enter Job ID" /></td>
+                    <td><h:inputText value="#{sessionInfo.jid}"/></td>
+                    <td><h:commandButton action="#{sessionInfo.vApplicants()}" value="View Applicants"/></td>
+                </tr>
+            </table>
+            <br/>
+            <h:dataTable value="#{sessionInfo.vApplicants()}" var="va" border="0">
+            <h:column>
+            <f:facet name="header">
+            Freelancers
+            </f:facet>
+            #{va}
+            </h:column>
+            </h:dataTable>
+            <table>
+                <tr>
+                    <td><h:outputText value = "Enter Freelancer's Email" /></td>
+                    <td><h:inputText value="#{sessionInfo.secEmail}"/></td>
+                    <td><h:commandButton action="#{sessionInfo.fProfile()}" value="View Profile"/></td>
+                    <td><h:commandButton action="#{sessionInfo.assignJob()}" value="Assign Job"/></td>
+                </tr>
+                <tr>
+                    <td><h:outputText value = "Enter Job ID"/></td>
+                    <td><h:inputText value="#{sessionInfo.secJid}"/></td>
+                    <td><h:commandButton action="#{sessionInfo.completeAndPay()}" value="Mark Complete and Pay"/></td>
+                </tr>
+            </table>
+            <br/>
+            <br/>
+            <h2>Profile Info</h2>
+            <h:dataTable value="#{sessionInfo.fProfile()}" var="fp" border="1">
+            <h:column>
+            <f:facet name="header">
+            Freelancer ID
+            </f:facet>
+            #{fp.fid}
+            </h:column>
+
+            <h:column>
+            <f:facet name="header">
+            First Name
+            </f:facet>
+            #{fp.fname}
+            </h:column>
+
+            <h:column>
+            <f:facet name="header">
+            Last Name
+            </f:facet>
+            #{fp.lname}
+            </h:column>
+
+            <h:column>
+            <f:facet name="header">
+            Email
+            </f:facet>
+            #{fp.femail}
+            </h:column>
+
+            <h:column>
+            <f:facet name="header">
+            Skills
+            </f:facet>
+            #{fp.skills}
+            </h:column>
+                
+            <h:column>
+            <f:facet name="header">
+            About The Applicant
+            </f:facet>
+            #{fp.msg}
+            </h:column> 
+            </h:dataTable>
+        </h:form>
+        </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+
+
